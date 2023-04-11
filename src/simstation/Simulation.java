@@ -27,7 +27,7 @@ public class Simulation extends Model {
     public void addAgent(Agent a)
     {
         agents.add(a);
-        //a.setSimulation(this);
+        a.setSimulation(this);
     }
 
     public void start()
@@ -88,7 +88,7 @@ public class Simulation extends Model {
     private class ClockUpdater extends TimerTask {
         public void run() {
             clock++;
-            changed();
+            //changed();
         }
     }
 
