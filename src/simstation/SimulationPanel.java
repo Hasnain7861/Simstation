@@ -6,14 +6,12 @@ import mvc.AppPanel;
 import javax.swing.*;
 import java.awt.*;
 
-/
 public class SimulationPanel extends AppPanel {
     public SimulationPanel(AppFactory factory) {
         super(factory);
         controlPanel.setLayout(new GridLayout(0, 1));
 
         controlPanel.setBackground(Color.BLUE);
-        view.setBackground(Color.GRAY);
 
         JButton start = new JButton("Start");
         start.addActionListener(this);

@@ -4,7 +4,7 @@ import mvc.AppFactory;
 import mvc.Command;
 import mvc.Model;
 import mvc.View;
-/
+
 public class SimStationFactory implements AppFactory{
 
     public Model makeModel() { return new Simulation(); }
