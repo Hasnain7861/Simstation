@@ -1,6 +1,5 @@
 package simstation;
 
-import javax.rmi.CORBA.Util;
 import java.io.Serializable;
 
 public class Agent implements Serializable, Runnable {
