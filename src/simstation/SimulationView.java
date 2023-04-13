@@ -18,15 +18,15 @@ public class SimulationView extends View {
         List<Agent> agents = s.getAgents();
 
         Graphics2D g2d = (Graphics2D) gc;
-        int currentDisplayHeight = this.getHeight();
-        int currentDisplayWidth = this.getWidth();
+        int height = this.getHeight();
+        int width = this.getWidth();
 
         g2d.setColor(new Color(100, 150, 250));
-        g2d.fillRect(0, 0, currentDisplayWidth, currentDisplayHeight);
-        g2d.setColor(new Color(80, 100, 60));  //
+        g2d.fillRect(0, 0, width, height);
+        g2d.setColor(new Color(80, 100, 60));
         for (Agent a : agents) {
-            gc.setColor(Color.BLUE);
-            gc.fillOval(a.xc, a.yc,2 ,2 );
+            gc.setColor(Color.WHITE);
+            gc.fillOval(a.xc, a.yc,10 ,10 );
         }
     }
 }
