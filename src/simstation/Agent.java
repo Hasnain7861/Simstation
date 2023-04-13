@@ -39,10 +39,24 @@ public class Agent implements Serializable, Runnable {
 
     }
 
+    public synchronized void start() {
+        myThread = new Thread(this);
+        myThread.start();
+    }
+
+    public synchronized void suspend() {
+        suspended = true;
+    }
+
+    public synchronized void resume() {
+        notify();
+    }
+
+    public synchronized void stop() { stopped = true; }
 
     public void run() {
-        myThread = Thread.currentThread();
         onStart();
+        myThread = Thread.currentThread();
 
         while (!isStopped()) {
             try {
@@ -56,18 +70,6 @@ public class Agent implements Serializable, Runnable {
         }
         onExit();
         System.out.println(name + " stopped");
-    }
-
-    public synchronized void start() {
-
-    }
-
-    public synchronized void join() {
-        try {
-            if (myThread != null) myThread.join();
-        } catch(InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     public void update() {}
@@ -115,15 +117,6 @@ public class Agent implements Serializable, Runnable {
         }
     }
 
-    public synchronized void suspend() {
-        suspended = true;
-    }
-
-    public synchronized void resume() {
-        notify();
-    }
-
-    public synchronized void stop() { stopped = true; }
 
     public void setSimulation(Simulation s) {
         mySimulation = s;

@@ -36,6 +36,7 @@ public class Simulation extends Model {
 
     public void start()
     {
+        populate();
         for(Agent a: agents) {
             Thread thread = new Thread(a);
             thread.start();
@@ -97,7 +98,7 @@ public class Simulation extends Model {
     private class ClockUpdater extends TimerTask {
         public void run() {
             clock++;
-            //changed();
+            changed();
         }
     }
 
