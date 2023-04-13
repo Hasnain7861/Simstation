@@ -1,5 +1,6 @@
 package simstation;
 
+import javax.rmi.CORBA.Util;
 import java.io.Serializable;
 
 public class Agent implements Serializable, Runnable {
@@ -13,14 +14,9 @@ public class Agent implements Serializable, Runnable {
     protected Thread myThread;
     protected Simulation mySimulation;
 
-    public Agent(String name) {
-        this.name = name;
-        suspended = false;
-        stopped = false;
-        myThread = null;
-    }
-
     public Agent() {
+        xc = (int) (Math.random() * 500);
+        yc = (int) (Math.random() * 500);
         this.name = null;
         suspended = false;
         stopped = false;
@@ -61,7 +57,7 @@ public class Agent implements Serializable, Runnable {
         while (!isStopped()) {
             try {
                 update();
-                Thread.sleep(1000);
+                Thread.sleep(20);
                 checkSuspended();
             } catch(InterruptedException e) {
                 onInterrupted();
