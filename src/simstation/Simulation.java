@@ -36,6 +36,7 @@ public class Simulation extends Model {
 
     public void start()
     {
+        agents.clear();
         populate();
         for(Agent a: agents) {
             Thread thread = new Thread(a);
