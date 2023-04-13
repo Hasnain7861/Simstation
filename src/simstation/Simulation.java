@@ -17,7 +17,7 @@ public class Simulation extends Model {
 
     private void startTimer() {
         timer = new Timer();
-        timer.scheduleAtFixedRate(new ClockUpdater(), 1000, 1000);
+        timer.scheduleAtFixedRate(new ClockUpdater(), 100, 100);
     }
     public List<Agent> getAgents()
     {
