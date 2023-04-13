@@ -19,6 +19,10 @@ public class Simulation extends Model {
         timer = new Timer();
         timer.scheduleAtFixedRate(new ClockUpdater(), 1000, 1000);
     }
+    public List<Agent> getAgents()
+    {
+        return agents;
+    }
 
     private void stopTimer() {
         timer.cancel();
