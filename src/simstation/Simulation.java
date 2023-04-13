@@ -92,8 +92,6 @@ public class Simulation extends Model {
 
     public void populate()
     {
-        for(int i = 0; i < 50; i++)
-            addAgent(new Agent());
     }
 
     private class ClockUpdater extends TimerTask {
