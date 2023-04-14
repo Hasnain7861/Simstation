@@ -10,6 +10,6 @@ public class StatsCommand extends Command{
     public void execute()
     {
         Simulation sim = (Simulation)model;
-        sim.stats();
+        Utilities.inform(sim.getStats());
     }
 }

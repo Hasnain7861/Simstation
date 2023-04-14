@@ -57,10 +57,10 @@ public class Simulation extends Model {
     {
         for(Agent a: agents) { a.resume(); }
     }
-    public void stats()
+    public String[] getStats()
     {
-        Utilities.inform("#Agents = " + agents.size() + "\nclock = " + clock);
-
+        String[] stats = new String[]{"#Agents = " + agents.size() , "\nclock = " + clock};
+        return stats;
     }
 
 
