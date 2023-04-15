@@ -3,12 +3,14 @@ package prisonersdilemma;
 import mvc.*;
 import simstation.*;
 public class Prisoner extends Agent {
+
     private int fitness = 0;
     private boolean partnerCheated = false;
-    Strategy strategy;
+    protected Strategy strategy;
 
     public Prisoner(Strategy strategy)
     {
+        super();
         this.fitness = 0;
         this.partnerCheated = false;
         this.strategy = strategy;
@@ -23,7 +25,7 @@ public class Prisoner extends Agent {
         Prisoner opponent = (Prisoner)(mySimulation.getNeighbor(this, 10));
         if(opponent != null) {
             boolean cooperated = strategy.cooperate();
-            boolean enemyCooperated = opponent.cooperate();
+            boolean enemyCooperated = opponent.getStrategy().cooperate();
 
             if (cooperated && enemyCooperated) {
                 updateFitness(3);
@@ -44,6 +46,8 @@ public class Prisoner extends Agent {
     public void setStrategy(Strategy s) {
         strategy = s;
     }
+
+    public Strategy getStrategy() { return strategy; }
 
     public void updateFitness(int amount) {
 
