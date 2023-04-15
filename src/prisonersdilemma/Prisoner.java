@@ -20,7 +20,7 @@ public class Prisoner extends Agent {
         int steps = Utilities.rng.nextInt(10) + 1;
         move(steps);
 
-        Prisoner opponent = (Prisoner)(world.getNeighbor(this, 10));
+        Prisoner opponent = (Prisoner)(mySimulation.getNeighbor(this, 10));
         if(opponent != null) {
             boolean cooperated = strategy.cooperate();
             boolean enemyCooperated = opponent.cooperate();
@@ -48,5 +48,9 @@ public class Prisoner extends Agent {
     public void updateFitness(int amount) {
 
         this.fitness += amount;
+    }
+
+    public boolean hasPartnerCheated() {
+        return partnerCheated;
     }
 }
