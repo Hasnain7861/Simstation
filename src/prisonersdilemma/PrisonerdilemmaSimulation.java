@@ -13,26 +13,27 @@ public class PrisonerdilemmaSimulation extends Simulation{
     public int randomcooperators = 10;
     public int tit4tatters = 10;
 
+    @Override
     public void populate()
     {
+
         for(int i = 0; i < cheaters; i++) {
             Prisoner cheater = new Prisoner(new Cheat());
-            cheater.setStrategy(new Cheat());
             addAgent(cheater);
         }
         for(int i = 0; i < cooperators; i++) {
-            Prisoner cooperator = new Prisoner(new Cooperate());
-            cooperator.setColor(Color.red);
-            addAgent(cooperator);
+            Prisoner cheat = new Prisoner(new Cooperate());
+            cheat.myColor = Color.red;
+            addAgent(cheat);
         }
         for(int i = 0; i < randomcooperators; i++) {
             Prisoner randomcooperator = new Prisoner(new RandomlyCooperate());
-            randomcooperator.setColor(Color.green);
+            randomcooperator.myColor = Color.green;
             addAgent(randomcooperator);
         }
         for(int i = 0; i < tit4tatters; i++) {
             Prisoner tit4tat = new Prisoner(new Tit4Tat());
-            tit4tat.setColor(Color.yellow);
+            tit4tat.myColor = Color.yellow;
             addAgent(tit4tat);
         }
     }
