@@ -85,8 +85,8 @@ public abstract class Agent implements Serializable, Runnable {
             }
 
             case NE: {
-                yc -= steps*Math.sqrt(2);
-                xc += steps*Math.sqrt(2);
+                yc -= steps;
+                xc += steps;
                 if (yc < 0) {
                     yc = (yc % 500) + 500;
                 }
@@ -129,26 +129,26 @@ public abstract class Agent implements Serializable, Runnable {
             }
 
             case SE: {
-                yc += steps*Math.sqrt(2);
-                xc += steps*Math.sqrt(2);
+                yc += steps;
+                xc += steps;
                 if (yc > 500) {
-                    yc = (yc % 500) + 500;
+                    yc = (yc % 500);
                 }
                 if (xc > 500) {
-                    xc = (xc % 500) + 500;
+                    xc = (xc % 500);
                 }
 
                 break;
             }
 
             case SW: {
-                yc += steps*Math.sqrt(2);
-                xc -= steps*Math.sqrt(2);
+                yc += steps;
+                xc -= steps;
                 if (yc > 500) {
-                    yc = (yc % 500) + 500;
+                    yc = (yc % 500);
                 }
                 if (xc < 0) {
-                    xc = (xc % 500);
+                    xc = (xc % 500) + 500;
                 }
 
                 break;
