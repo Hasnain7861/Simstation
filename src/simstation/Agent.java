@@ -1,5 +1,6 @@
 package simstation;
 
+import java.awt.*;
 import java.io.Serializable;
 
 public abstract class Agent implements Serializable, Runnable {
@@ -12,6 +13,7 @@ public abstract class Agent implements Serializable, Runnable {
     private boolean stopped;
     transient protected Thread myThread;
     protected Simulation mySimulation;
+    protected Color myColor;
 
     public Agent() {
         xc = (int) (Math.random() * 500);
@@ -20,6 +22,7 @@ public abstract class Agent implements Serializable, Runnable {
         suspended = false;
         stopped = false;
         myThread = null;
+        myColor = Color.WHITE;
     }
 
     public void onStart() {
@@ -193,4 +196,5 @@ public abstract class Agent implements Serializable, Runnable {
         else result += " (running)";
         return result;
     }
+
 }

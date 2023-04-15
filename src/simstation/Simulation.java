@@ -17,12 +17,13 @@ public class Simulation extends Model {
 
     private void startTimer() {
         timer = new Timer();
-        timer.scheduleAtFixedRate(new ClockUpdater(), 100, 100);
+        timer.scheduleAtFixedRate(new ClockUpdater(), 20, 20);
     }
     public List<Agent> getAgents()
     {
         return agents;
     }
+    public int getClock() { return clock; }
 
     private void stopTimer() {
         timer.cancel();

@@ -25,7 +25,7 @@ public class SimulationView extends View {
         g2d.fillRect(0, 0, width, height);
         g2d.setColor(new Color(80, 100, 60));
         for (Agent a : agents) {
-            gc.setColor(Color.WHITE);
+            gc.setColor(a.myColor);
             gc.fillOval(a.xc, a.yc,10 ,10 );
         }
     }
