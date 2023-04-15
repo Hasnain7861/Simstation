@@ -13,7 +13,7 @@ class Bird extends Agent {
     }
 
     public void update() {
-        Bird neighbor = (Bird)(mySimulation.getNeighbor(this, 20));
+        Bird neighbor = (Bird)(mySimulation.getNeighbor(this, 30));
         if(neighbor != null)
         {
             speed = neighbor.speed;
