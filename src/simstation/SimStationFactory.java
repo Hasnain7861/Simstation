@@ -55,10 +55,7 @@ public class SimStationFactory implements AppFactory{
 
     public String[] getHelp()
     {
-        return new String[] {" \"Start\" begins the simulation"
-                + "\n \"Suspend\" to pause " +
-                " \n \"Resume\" will continue "
-                + "\n  \"Stop\" the end the simulation"};
+        return new String[] {" \"Start\" begins the simulation" + "\n \"Suspend\" to pause " + " \n \"Resume\" will continue " + "\n  \"Stop\" the end the simulation" + " \n \"Stats\" will show the statistics of the simulation. "};
     }
 
     public String about()
