@@ -13,7 +13,7 @@ public abstract class Agent implements Serializable, Runnable {
     private boolean stopped;
     transient protected Thread myThread;
     protected Simulation mySimulation;
-    protected Color myColor;
+    public Color myColor;
 
     public Agent() {
         xc = (int) (Math.random() * 500);
