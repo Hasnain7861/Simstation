@@ -44,7 +44,7 @@ public class FlockingSimulation extends Simulation {
             }
         }
 
-        String[] stats = new String[]{"#birds at speed 1 = " + speed1 , "#birds at speed 2 = " + speed2 ,
+        String[] stats = new String[]{"#Agents = " + super.getAgents().size() , "clock = " + super.getClock(), "#birds at speed 1 = " + speed1 , "#birds at speed 2 = " + speed2 ,
                 "#birds at speed 3 = " + speed3 , "#birds at speed 4 = " + speed4 , "#birds at speed 5 = " + speed5};
         return stats;
     }
