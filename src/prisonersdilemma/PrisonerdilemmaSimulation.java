@@ -21,17 +21,17 @@ public class PrisonerdilemmaSimulation extends Simulation{
             addAgent(cheater);
         }
         for(int i = 0; i < cooperators; i++) {
-            Agent cheat = new Prisoner(new Cooperate());
-            cheat.setColor(Color.red);
-            addAgent(cheat);
+            Prisoner cooperator = new Prisoner(new Cooperate());
+            cooperator.setColor(Color.red);
+            addAgent(cooperator);
         }
         for(int i = 0; i < randomcooperators; i++) {
-            Agent randomcooperator = new Prisoner(new RandomlyCooperate());
+            Prisoner randomcooperator = new Prisoner(new RandomlyCooperate());
             randomcooperator.setColor(Color.green);
             addAgent(randomcooperator);
         }
         for(int i = 0; i < tit4tatters; i++) {
-            Agent tit4tat = new Prisoner(new Tit4Tat());
+            Prisoner tit4tat = new Prisoner(new Tit4Tat());
             tit4tat.setColor(Color.yellow);
             addAgent(tit4tat);
         }
