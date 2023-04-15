@@ -2,7 +2,7 @@ package simstation;
 
 import java.io.Serializable;
 
-public class Agent implements Serializable, Runnable {
+public abstract class Agent implements Serializable, Runnable {
 
     protected String name;
     protected Heading heading;
@@ -10,7 +10,7 @@ public class Agent implements Serializable, Runnable {
     protected int yc;
     private boolean suspended;
     private boolean stopped;
-    protected Thread myThread;
+    transient protected Thread myThread;
     protected Simulation mySimulation;
 
     public Agent() {
@@ -56,7 +56,7 @@ public class Agent implements Serializable, Runnable {
         while (!isStopped()) {
             try {
                 update();
-                Thread.sleep(20);
+                Thread.sleep(25);
                 checkSuspended();
             } catch(InterruptedException e) {
                 onInterrupted();
@@ -72,7 +72,7 @@ public class Agent implements Serializable, Runnable {
     public synchronized void move(int steps) {
         switch(heading) {
 
-            case NORTH: {
+            case N: {
                 yc -= steps;
                 if (yc < 0) {
                     yc = (yc % 500) + 500;
@@ -81,7 +81,33 @@ public class Agent implements Serializable, Runnable {
                 break;
             }
 
-            case EAST: {
+            case NE: {
+                yc -= steps*Math.sqrt(2);
+                xc += steps*Math.sqrt(2);
+                if (yc < 0) {
+                    yc = (yc % 500) + 500;
+                }
+                if (xc > 500) {
+                    xc = (xc % 500);
+                }
+
+                break;
+            }
+
+            case NW: {
+                yc -= steps;
+                xc -= steps;
+                if (yc < 0) {
+                    yc = (yc % 500) + 500;
+                }
+                if (xc < 0) {
+                    xc = (xc % 500) + 500;
+                }
+
+                break;
+            }
+
+            case E: {
                 xc += steps;
                 if (xc > 500) {
                     xc = (xc % 500);
@@ -90,7 +116,7 @@ public class Agent implements Serializable, Runnable {
                 break;
             }
 
-            case SOUTH: {
+            case S: {
                 yc += steps;
                 if (yc > 500) {
                     yc = (yc % 500);
@@ -99,7 +125,33 @@ public class Agent implements Serializable, Runnable {
                 break;
             }
 
-            case WEST: {
+            case SE: {
+                yc += steps*Math.sqrt(2);
+                xc += steps*Math.sqrt(2);
+                if (yc > 500) {
+                    yc = (yc % 500) + 500;
+                }
+                if (xc > 500) {
+                    xc = (xc % 500) + 500;
+                }
+
+                break;
+            }
+
+            case SW: {
+                yc += steps*Math.sqrt(2);
+                xc -= steps*Math.sqrt(2);
+                if (yc > 500) {
+                    yc = (yc % 500) + 500;
+                }
+                if (xc < 0) {
+                    xc = (xc % 500);
+                }
+
+                break;
+            }
+
+            case W: {
                 xc -= steps;
                 if (xc < 0) {
                     xc = (xc % 500) + 500;
