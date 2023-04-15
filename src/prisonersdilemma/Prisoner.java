@@ -57,4 +57,8 @@ public class Prisoner extends Agent {
     public boolean hasPartnerCheated() {
         return partnerCheated;
     }
+
+    public int getFitness() {
+        return fitness;
+    }
 }

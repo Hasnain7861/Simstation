@@ -1,5 +1,6 @@
 package prisonersdilemma;
 
+import flocking.Bird;
 import mvc.*;
 import simstation.*;
 
@@ -37,6 +38,58 @@ public class PrisonerdilemmaSimulation extends Simulation{
             addAgent(tit4tat);
         }
     }
+
+    public String[] getStats() {
+        double averageCheat = 0;
+        double averageCooperate = 0;
+        double averageRandCooperate = 0;
+        double averageTit4Tat = 0;
+
+        double cheatCount = 0;
+        double cooperateCount = 0;
+        double randomCount = 0;
+        double tit4TatCount = 0;
+
+        Prisoner temp = new Prisoner();
+        for(int i = 0; i < getAgents().size(); i++)
+        {
+            temp = (Prisoner)(getAgents().get(i));
+            String type = temp.getStrategy().getType();
+
+            if(type.equalsIgnoreCase("Cooperate"))
+            {
+                averageCooperate += temp.getFitness();
+                cooperateCount += 1;
+            }
+
+            else if(type.equalsIgnoreCase("RandCooperate"))
+            {
+                averageRandCooperate += temp.getFitness();
+                randomCount += 1;
+            }
+
+            else if(type.equalsIgnoreCase("Cheat"))
+            {
+                averageCheat += temp.getFitness();
+                cheatCount += 1;
+            }
+
+            else
+            {
+                averageTit4Tat += temp.getFitness();
+                tit4TatCount += 1;
+            }
+        }
+        averageCheat = averageCheat / cheatCount;
+        averageCooperate = averageCooperate / cooperateCount;
+        averageRandCooperate = averageRandCooperate / randomCount;
+        averageTit4Tat = averageTit4Tat / tit4TatCount;
+
+        String[] stats = new String[]{"Average score for cheaters = " + averageCheat , "Average score for cooperators = " + averageCooperate ,
+                "#Average score for random cooperators = " + averageRandCooperate , "Average score for tit4tatters = " + averageTit4Tat};
+        return stats;
+    }
+
 
     public static void main(String[] args)
     {
