@@ -50,7 +50,7 @@ public class PrisonerdilemmaSimulation extends Simulation{
         double randomCount = 0;
         double tit4TatCount = 0;
 
-        Prisoner temp = new Prisoner();
+        Prisoner temp;
         for(int i = 0; i < getAgents().size(); i++)
         {
             temp = (Prisoner)(getAgents().get(i));
