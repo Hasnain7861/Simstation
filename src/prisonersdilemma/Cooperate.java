@@ -7,4 +7,8 @@ public class Cooperate extends Strategy {
         return true;
     }
 
+    public String getType() {
+        return strategy;
+    }
+
 }
