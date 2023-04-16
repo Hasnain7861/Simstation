@@ -1,6 +1,5 @@
 package prisonersdilemma;
 
-import flocking.Bird;
 import mvc.*;
 import simstation.*;
 
