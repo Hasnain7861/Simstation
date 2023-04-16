@@ -54,7 +54,7 @@ public class PrisonerdilemmaSimulation extends Simulation{
         for(int i = 0; i < getAgents().size(); i++)
         {
             temp = (Prisoner)(getAgents().get(i));
-            String type = temp.getStrategy().getType();
+            String type = temp.getStrategy().strategy;
 
             if(type.equalsIgnoreCase("Cooperate"))
             {
