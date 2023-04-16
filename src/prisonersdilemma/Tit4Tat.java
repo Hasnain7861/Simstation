@@ -8,10 +8,12 @@ public class Tit4Tat extends Strategy
         if (myprisoner.hasPartnerCheated()) {
             return false;
         }
-        return true;
+        else {
+            return true;
+        }
     }
 
-    public String getStrategy() {
+    public String getType() {
         return strategy;
     }
 }

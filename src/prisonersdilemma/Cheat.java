@@ -8,7 +8,7 @@ public class Cheat extends Strategy
         return false;
     }
 
-    public String getStrategy() {
+    public String getType() {
         return strategy;
     }
 }

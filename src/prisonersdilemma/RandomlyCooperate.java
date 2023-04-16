@@ -10,7 +10,7 @@ public class RandomlyCooperate extends Strategy
         return random.nextBoolean();
     }
 
-    public String getStrategy() {
+    public String getType() {
         return strategy;
     }
 }

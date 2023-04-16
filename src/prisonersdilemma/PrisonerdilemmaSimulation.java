@@ -53,7 +53,7 @@ public class PrisonerdilemmaSimulation extends Simulation{
         for(int i = 0; i < getAgents().size(); i++)
         {
             temp = (Prisoner)(getAgents().get(i));
-            String type = temp.getStrategy().strategy;
+            String type = temp.getStrategy().getType();
 
             if(type.equalsIgnoreCase("Cooperate"))
             {
@@ -61,7 +61,7 @@ public class PrisonerdilemmaSimulation extends Simulation{
                 cooperateCount += 1;
             }
 
-            else if(type.equalsIgnoreCase("RandCooperate"))
+            else if(type.equalsIgnoreCase("RandomCooperate"))
             {
                 averageRandCooperate += temp.getFitness();
                 randomCount += 1;
@@ -85,7 +85,7 @@ public class PrisonerdilemmaSimulation extends Simulation{
         averageTit4Tat = averageTit4Tat / tit4TatCount;
 
         String[] stats = new String[]{"Average score for cheaters = " + averageCheat , "Average score for cooperators = " + averageCooperate ,
-                "#Average score for random cooperators = " + averageRandCooperate , "Average score for tit4tatters = " + averageTit4Tat};
+                "Average score for random cooperators = " + averageRandCooperate , "Average score for tit4tatters = " + averageTit4Tat};
         return stats;
     }
 
