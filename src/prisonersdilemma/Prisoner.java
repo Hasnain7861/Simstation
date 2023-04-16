@@ -15,7 +15,7 @@ public class Prisoner extends Agent {
         this.fitness = 0;
         this.partnerCheated = false;
         this.strategy = strategy;
-        strategy.myprisoner = this;
+        this.strategy.myprisoner = this;
     }
 
     public void update()
