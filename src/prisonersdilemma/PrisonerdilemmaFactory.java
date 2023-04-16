@@ -5,7 +5,7 @@ import simstation.*;
 
 public class PrisonerdilemmaFactory extends SimStationFactory
 {
-    public Model makeModel() { return new Simulation(); }
+    public Model makeModel() { return new PrisonerdilemmaSimulation(); }
     public String getTitle() { return "PrisonersDilemma";}
 
     public String about() {

@@ -11,9 +11,11 @@ public class Prisoner extends Agent {
     public Prisoner(Strategy strategy)
     {
         super();
+        heading = Heading.random();
         this.fitness = 0;
         this.partnerCheated = false;
         this.strategy = strategy;
+        this.strategy.myprisoner = this;
     }
 
     public void update()
@@ -24,23 +26,27 @@ public class Prisoner extends Agent {
 
         Prisoner opponent = (Prisoner)(mySimulation.getNeighbor(this, 10));
         if(opponent != null) {
-            boolean cooperated = strategy.cooperate();
-            boolean enemyCooperated = opponent.getStrategy().cooperate();
+            boolean cooperated = cooperate();
+            boolean enemyCooperated = opponent.cooperate();
 
             if (cooperated && enemyCooperated) {
                 updateFitness(3);
                 opponent.updateFitness(3);
-            } else if (cooperated && !enemyCooperated) {
+            } else if (cooperated) {
                 updateFitness(0);
                 opponent.updateFitness(5);
-            } else if (!cooperated && enemyCooperated) {
+            } else if (enemyCooperated) {
                 updateFitness(5);
                 opponent.updateFitness(0);
-            } else if (!cooperated && !enemyCooperated) {
+            } else {
                 updateFitness(1);
                 opponent.updateFitness(1);
             }
         }
+    }
+
+    public boolean cooperate() {
+        return strategy.cooperate();
     }
 
     public void setStrategy(Strategy s) {
@@ -54,11 +60,11 @@ public class Prisoner extends Agent {
         this.fitness += amount;
     }
 
-    public boolean hasPartnerCheated() {
-        return partnerCheated;
-    }
-
     public int getFitness() {
         return fitness;
+    }
+
+    public boolean hasPartnerCheated() {
+        return partnerCheated;
     }
 }
